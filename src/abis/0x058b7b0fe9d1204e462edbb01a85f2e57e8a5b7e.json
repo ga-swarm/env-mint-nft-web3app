@@ -1,0 +1,472 @@
+[
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_wrapper",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+    },
+    {
+        "inputs": [
+
+        ],
+        "name": "IID_IERC1155",
+        "outputs": [
+            {
+                "internalType": "bytes4",
+                "name": "",
+                "type": "bytes4"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+
+        ],
+        "name": "IID_IERC721",
+        "outputs": [
+            {
+                "internalType": "bytes4",
+                "name": "",
+                "type": "bytes4"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+
+        ],
+        "name": "MAX_FEE_THRESHOLD_PERCENT",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+
+        ],
+        "name": "MAX_ROYALTY_PERCENT",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+
+        ],
+        "name": "MAX_TIME_TO_UNWRAP",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_wNFTAddress",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_wNFTTokenId",
+                "type": "uint256"
+            },
+            {
+                "components": [
+                    {
+                        "components": [
+                            {
+                                "internalType": "enum ETypes.AssetType",
+                                "name": "assetType",
+                                "type": "uint8"
+                            },
+                            {
+                                "internalType": "address",
+                                "name": "contractAddress",
+                                "type": "address"
+                            }
+                        ],
+                        "internalType": "struct ETypes.Asset",
+                        "name": "asset",
+                        "type": "tuple"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "tokenId",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "amount",
+                        "type": "uint256"
+                    }
+                ],
+                "internalType": "struct ETypes.AssetItem[]",
+                "name": "_collateral",
+                "type": "tuple[]"
+            }
+        ],
+        "name": "checkAddCollateral",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            },
+            {
+                "internalType": "string",
+                "name": "",
+                "type": "string"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "enum ETypes.AssetType",
+                "name": "_wNFTType",
+                "type": "uint8"
+            },
+            {
+                "internalType": "address",
+                "name": "_wNFTAddress",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_wNFTTokenId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "bool",
+                "name": "_isEmergency",
+                "type": "bool"
+            }
+        ],
+        "name": "checkUnWrap",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "components": [
+                    {
+                        "components": [
+                            {
+                                "components": [
+                                    {
+                                        "internalType": "enum ETypes.AssetType",
+                                        "name": "assetType",
+                                        "type": "uint8"
+                                    },
+                                    {
+                                        "internalType": "address",
+                                        "name": "contractAddress",
+                                        "type": "address"
+                                    }
+                                ],
+                                "internalType": "struct ETypes.Asset",
+                                "name": "asset",
+                                "type": "tuple"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "tokenId",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "amount",
+                                "type": "uint256"
+                            }
+                        ],
+                        "internalType": "struct ETypes.AssetItem",
+                        "name": "inAsset",
+                        "type": "tuple"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "unWrapDestinition",
+                        "type": "address"
+                    },
+                    {
+                        "components": [
+                            {
+                                "internalType": "bytes1",
+                                "name": "feeType",
+                                "type": "bytes1"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "param",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "address",
+                                "name": "token",
+                                "type": "address"
+                            }
+                        ],
+                        "internalType": "struct ETypes.Fee[]",
+                        "name": "fees",
+                        "type": "tuple[]"
+                    },
+                    {
+                        "components": [
+                            {
+                                "internalType": "bytes1",
+                                "name": "lockType",
+                                "type": "bytes1"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "param",
+                                "type": "uint256"
+                            }
+                        ],
+                        "internalType": "struct ETypes.Lock[]",
+                        "name": "locks",
+                        "type": "tuple[]"
+                    },
+                    {
+                        "components": [
+                            {
+                                "internalType": "address",
+                                "name": "beneficiary",
+                                "type": "address"
+                            },
+                            {
+                                "internalType": "uint16",
+                                "name": "percent",
+                                "type": "uint16"
+                            }
+                        ],
+                        "internalType": "struct ETypes.Royalty[]",
+                        "name": "royalties",
+                        "type": "tuple[]"
+                    },
+                    {
+                        "internalType": "enum ETypes.AssetType",
+                        "name": "outType",
+                        "type": "uint8"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "outBalance",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "bytes2",
+                        "name": "rules",
+                        "type": "bytes2"
+                    }
+                ],
+                "internalType": "struct ETypes.INData",
+                "name": "_inData",
+                "type": "tuple"
+            },
+            {
+                "components": [
+                    {
+                        "components": [
+                            {
+                                "internalType": "enum ETypes.AssetType",
+                                "name": "assetType",
+                                "type": "uint8"
+                            },
+                            {
+                                "internalType": "address",
+                                "name": "contractAddress",
+                                "type": "address"
+                            }
+                        ],
+                        "internalType": "struct ETypes.Asset",
+                        "name": "asset",
+                        "type": "tuple"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "tokenId",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "amount",
+                        "type": "uint256"
+                    }
+                ],
+                "internalType": "struct ETypes.AssetItem[]",
+                "name": "_collateral",
+                "type": "tuple[]"
+            },
+            {
+                "internalType": "address",
+                "name": "_wrappFor",
+                "type": "address"
+            }
+        ],
+        "name": "checkWrap",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            },
+            {
+                "internalType": "string",
+                "name": "",
+                "type": "string"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_wNFTAddress",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_wNFTTokenId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "address",
+                "name": "_erc1155",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_tokenId",
+                "type": "uint256"
+            }
+        ],
+        "name": "getERC1155CollateralBalance",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_wNFTAddress",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_wNFTTokenId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "address",
+                "name": "_erc20",
+                "type": "address"
+            }
+        ],
+        "name": "getERC20CollateralBalance",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_wNFTAddress",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_wNFTTokenId",
+                "type": "uint256"
+            }
+        ],
+        "name": "getNativeCollateralBalance",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+
+        ],
+        "name": "wrapper",
+        "outputs": [
+            {
+                "internalType": "contract IWrapper",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    }
+]

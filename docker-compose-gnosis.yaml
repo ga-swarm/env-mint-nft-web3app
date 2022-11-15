@@ -1,0 +1,7 @@
+version: '3.7'
+
+services:
+  build_delivery_service:
+    image: registry.gitlab.com/niftsy/web3app_v1:gnosis
+    container_name: build_gnosis_appv1
+    entrypoint: "/bin/sh -c 'sleep 1h'"     

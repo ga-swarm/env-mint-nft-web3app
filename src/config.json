@@ -1,0 +1,80 @@
+{
+	"CHAIN_SPECIFIC_DATA": [
+
+		{
+			"chainId": 4,
+			"chainName": "Rinkeby",
+			"chainColorCode": "627EEA",
+			"chainRPCUrl": "https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
+			"networkTokenTicket": "ETH",
+			"EIPPrefix": "ERC",
+			"networkTokenDecimals": 18,
+			"isTestNetwork": true,
+			"explorerBaseUrl": "https://rinkeby.etherscan.io/",
+			"explorerName": "Etherscan",
+			"nftMinterContract721": "0xc0C01d695B03c6A3A87c8cEd8Da0BD18be85eaf6",
+			"nftMinterContract1155": "0xB3BF6FE7A484625A9E63b9b9FBe49a54cBf4F9c3"
+		},
+
+		{
+			"chainId": 5,
+			"chainName": "Goerli",
+			"chainColorCode": "627EEA",
+			"chainRPCUrl": "https://goerli.infura.io/v3/",
+			"networkTokenTicket": "ETH",
+			"EIPPrefix": "ERC",
+			"networkTokenDecimals": 18,
+			"isTestNetwork": true,
+			"explorerBaseUrl": "https://goerli.etherscan.io/",
+			"explorerName": "Etherscan",
+			"nftMinterContract721": "0x4B44874F117e04462bF005779E5F2D021F1688b8",
+			"nftMinterContract1155": "0x41057675c8cFaaf31E6A7Ad95De7722f34B63a04"
+		},
+
+		{
+			"chainId": 1,
+			"chainName": "Ethereum",
+			"chainColorCode": "627EEA",
+			"chainRPCUrl": "https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
+			"networkTokenTicket": "ETH",
+			"EIPPrefix": "ERC",
+			"networkTokenDecimals": 18,
+			"isTestNetwork": false,
+			"explorerBaseUrl": "https://etherscan.io/",
+			"explorerName": "Etherscan",
+			"nftMinterContract721": "0xD19712A4FA49f77A88509d6c4916452b9CeAf371",
+			"nftMinterContract1155": "0xC152F488fbBf6cb9b39Fc61dcc0ED55916aDc787"
+		},
+
+		{
+			"chainId": 56,
+			"chainName": "BSC",
+			"chainColorCode": "F0B90B",
+			"chainRPCUrl": "https://bsc-dataseed.binance.org/",
+			"networkTokenTicket": "BNB",
+			"EIPPrefix": "BEP",
+			"networkTokenDecimals": 18,
+			"isTestNetwork": false,
+			"explorerBaseUrl": "https://bscscan.com/",
+			"explorerName": "bscscan",
+			"nftMinterContract721": "0xE90a679a862Ea371A5c0a7451843667CB23021c8",
+			"nftMinterContract1155": "0xC16FFb680FB5C592cfF1ae0fFf01a48cAfBC4b53"
+		},
+
+		{
+			"chainId": 137,
+			"chainName": "Matic (Polygon)",
+			"chainColorCode": "8247E5",
+			"chainRPCUrl": "https://rpc-mainnet.maticvigil.com/",
+			"networkTokenTicket": "MATIC",
+			"EIPPrefix": "ERC",
+			"networkTokenDecimals": 18,
+			"isTestNetwork": false,
+			"explorerBaseUrl": "https://polygonscan.com/",
+			"explorerName": "PolygonScan",
+			"nftMinterContract721": "0xa8447D0063E3e437BF3ce9dD734003E1c36d8897",
+			"nftMinterContract1155": "0xBB990bAFA2BB5b733d2E4A2dB7F18760fe440980"
+		}
+
+	]
+}

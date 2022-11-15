@@ -1,0 +1,633 @@
+[
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "previousOwner",
+                "type": "address"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "newOwner",
+                "type": "address"
+            }
+        ],
+        "name": "OwnershipTransferred",
+        "type": "event"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_tarifIndex",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_serviceCode",
+                "type": "uint256"
+            }
+        ],
+        "name": "addServiceToTarif",
+        "outputs": [
+
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "components": [
+                    {
+                        "components": [
+                            {
+                                "internalType": "uint256",
+                                "name": "timelockPeriod",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "ticketValidPeriod",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "counter",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "bool",
+                                "name": "isAvailable",
+                                "type": "bool"
+                            }
+                        ],
+                        "internalType": "struct SubscriptionManagerV1.SubscriptionType",
+                        "name": "subscription",
+                        "type": "tuple"
+                    },
+                    {
+                        "components": [
+                            {
+                                "internalType": "address",
+                                "name": "paymentToken",
+                                "type": "address"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "paymentAmount",
+                                "type": "uint256"
+                            }
+                        ],
+                        "internalType": "struct SubscriptionManagerV1.PayOption[]",
+                        "name": "payWith",
+                        "type": "tuple[]"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "services",
+                        "type": "uint256[]"
+                    }
+                ],
+                "internalType": "struct SubscriptionManagerV1.Tariff",
+                "name": "_newTarif",
+                "type": "tuple"
+            }
+        ],
+        "name": "addTarif",
+        "outputs": [
+
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_tarifIndex",
+                "type": "uint256"
+            },
+            {
+                "internalType": "address",
+                "name": "_paymentToken",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_paymentAmount",
+                "type": "uint256"
+            }
+        ],
+        "name": "addTarifPayOption",
+        "outputs": [
+
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "name": "agentRegistry",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "availableTariffs",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "uint256",
+                        "name": "timelockPeriod",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "ticketValidPeriod",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "counter",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "bool",
+                        "name": "isAvailable",
+                        "type": "bool"
+                    }
+                ],
+                "internalType": "struct SubscriptionManagerV1.SubscriptionType",
+                "name": "subscription",
+                "type": "tuple"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_tarifIndex",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_payWithIndex",
+                "type": "uint256"
+            },
+            {
+                "internalType": "address",
+                "name": "_buyFor",
+                "type": "address"
+            }
+        ],
+        "name": "buySubscription",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "uint256",
+                        "name": "validUntil",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "countsLeft",
+                        "type": "uint256"
+                    }
+                ],
+                "internalType": "struct SubscriptionManagerV1.Ticket",
+                "name": "ticket",
+                "type": "tuple"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_user",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_serviceCode",
+                "type": "uint256"
+            }
+        ],
+        "name": "checkAndFixUserSubscription",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "ok",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_user",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_serviceCode",
+                "type": "uint256"
+            }
+        ],
+        "name": "checkUserSubscription",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "ok",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_tarifIndex",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_timelockPeriod",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_ticketValidPeriod",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_counter",
+                "type": "uint256"
+            },
+            {
+                "internalType": "bool",
+                "name": "_isAvailable",
+                "type": "bool"
+            }
+        ],
+        "name": "editTarif",
+        "outputs": [
+
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_tarifIndex",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_payWithIndex",
+                "type": "uint256"
+            },
+            {
+                "internalType": "address",
+                "name": "_paymentToken",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_paymentAmount",
+                "type": "uint256"
+            }
+        ],
+        "name": "editTarifPayOption",
+        "outputs": [
+
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_user",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_tariffIndex",
+                "type": "uint256"
+            }
+        ],
+        "name": "fixUserSubscription",
+        "outputs": [
+
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+
+        ],
+        "name": "getAvailableTariffs",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "components": [
+                            {
+                                "internalType": "uint256",
+                                "name": "timelockPeriod",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "ticketValidPeriod",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "counter",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "bool",
+                                "name": "isAvailable",
+                                "type": "bool"
+                            }
+                        ],
+                        "internalType": "struct SubscriptionManagerV1.SubscriptionType",
+                        "name": "subscription",
+                        "type": "tuple"
+                    },
+                    {
+                        "components": [
+                            {
+                                "internalType": "address",
+                                "name": "paymentToken",
+                                "type": "address"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "paymentAmount",
+                                "type": "uint256"
+                            }
+                        ],
+                        "internalType": "struct SubscriptionManagerV1.PayOption[]",
+                        "name": "payWith",
+                        "type": "tuple[]"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "services",
+                        "type": "uint256[]"
+                    }
+                ],
+                "internalType": "struct SubscriptionManagerV1.Tariff[]",
+                "name": "",
+                "type": "tuple[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_user",
+                "type": "address"
+            }
+        ],
+        "name": "getUserTickets",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "uint256",
+                        "name": "validUntil",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "countsLeft",
+                        "type": "uint256"
+                    }
+                ],
+                "internalType": "struct SubscriptionManagerV1.Ticket[]",
+                "name": "",
+                "type": "tuple[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+
+        ],
+        "name": "mainWrapper",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+
+        ],
+        "name": "owner",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+
+        ],
+        "name": "previousManager",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_tarifIndex",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_serviceIndex",
+                "type": "uint256"
+            }
+        ],
+        "name": "removeServiceFromTarif",
+        "outputs": [
+
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+
+        ],
+        "name": "renounceOwnership",
+        "outputs": [
+
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_agent",
+                "type": "address"
+            },
+            {
+                "internalType": "bool",
+                "name": "_status",
+                "type": "bool"
+            }
+        ],
+        "name": "setAgentStatus",
+        "outputs": [
+
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_wrapper",
+                "type": "address"
+            }
+        ],
+        "name": "setMainWrapper",
+        "outputs": [
+
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_manager",
+                "type": "address"
+            }
+        ],
+        "name": "setPreviousManager",
+        "outputs": [
+
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "newOwner",
+                "type": "address"
+            }
+        ],
+        "name": "transferOwnership",
+        "outputs": [
+
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "userTickets",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "validUntil",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "countsLeft",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    }
+]

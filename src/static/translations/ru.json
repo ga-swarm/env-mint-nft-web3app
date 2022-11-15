@@ -1,0 +1,108 @@
+{
+
+    "ADDRESS": "Адрес",
+    "ID": "Ойди",
+    "Token": "Монета",
+    "NFT Address": "Адрес нфтшки",
+    "NIFTSY Collateral Smart Contract Journey": "Нифтся <1/> самая лучшая",
+    "tr_onb_1": "Воткни сюда <1/> адрес нфтшки",
+    "tr_onb_2": "Настрой, что <1/> тебе там надо",
+    "tr_onb_3": "Сохраняй, продавай, <1/> разворачивай гусей",
+    "PASTE HERE": "Тычь сюда",
+
+    "NON-FUNGIBLE TOKEN WRAP": "Все мероприятие",
+    "ABSOLUTLY FREE": "абсолютно за так",
+    "FOR AUTHOR": "для тебя",
+
+    "Loading": "Думаем",
+    "Loading tokens": "Где там твои токены",
+
+    "Info": "Чтоб ты знал",
+    "Error Screen": "Ашыпка",
+    "ACCEPT THIS FACT": "Лаадно",
+
+    "NIFTSY": "NIFTSY",
+    "NIFTSY Protocol": "NIFTSY Protocol",
+    "Protocol": "Protocol",
+    "Analytics": "Analytics",
+    "Investors": "Investors",
+    "Creators": "Creators",
+    "Support": "Support",
+
+    "Connect": "Connect",
+    "Change chain in metamask": "Change chain in metamask",
+    "Test network": "Test network",
+    "BLOCKCHAIN": "BLOCKCHAIN",
+    "DON’T SHOW": "DON’T SHOW",
+
+    "Wrapped": "Wrapped",
+    "Collateral": "Collateral",
+    "Fee": "Fee",
+    "Royalties": "Royalties",
+
+    "Loading NON-FUNGIBLE TOKEN Preview": "Loading NON-FUNGIBLE <1/> TOKEN Preview",
+
+    "Continue wrap": "Continue wrap",
+
+    "Unwrap will be ready after Time or Value Unlock.": "Unwrap will be ready after Time or Value Unlock.",
+    "UNWRAP": "UNWRAP",
+
+    "Transfer": "Transfer",
+    "Delete NFT": "Delete NFT",
+    "Fees": "Fees",
+    "Royalty": "Royalty",
+
+    "Not enough": "Not enough",
+
+    "Niftsy Token Transfer": "Niftsy Token Transfer",
+    "Short Message about transfer operation.": "Short Message about transfer operation.",
+    "Transfer Address": "Transfer Address",
+
+    "NIFTSY TOKEN TRANSFER <1/> absotutly free for author": "NIFTSY TOKEN TRANSFER <1/> absotutly free for author",
+    "Add Ethereum": "Add Ethereum",
+    "Short Message about add value operation.": "Short Message about add value operation.",
+
+    "Quantity": "Quantity",
+    "DON’T HAVE": "DON’T <1/> HAVE",
+    "Come back, I changed my mind": "Come back, I changed my mind",
+
+    "WRAP NON-FUNGIBLE TOKEN": "WRAP NON-FUNGIBLE TOKEN",
+    "wrap nft": "wrap nft",
+    "Collaterals": "Collaterals",
+
+    "ENTER FEE": "ENTER<1/>FEE",
+
+    "UNWRAP &amp; CLAIM": "UNWRAP &amp; CLAIM",
+    "Time Unlock": "Time Unlock",
+
+    "days": "days",
+    "WRAP TOKEN": "WRAP TOKEN",
+
+    "Add Regular": "Add Regular",
+    "Collateral fee": "Collateral fee",
+
+    "Original NFT": "Original NFT",
+    "Ether": "Ether",
+    "back to collaterals": "back to collaterals",
+
+    "No metamask installed": "No metamask installed",
+    "Download extension": "Download extension",
+    "You should grant access in metamask": "You should grant access in metamask",
+    "Try again": "Try again",
+    "Cannot connect to metamask": "Cannot connect to metamask",
+    "Unsupported chain": "Unsupported chain",
+    "Connect again": "Connect again",
+    "Waiting for refill": "Waiting for refill",
+    "Cannot wrap token": "Cannot wrap token",
+    "Your Collateral Successfully Refilled": "Your Collateral Successfully Refilled",
+    "Waiting for transfer": "Waiting for transfer",
+    "Your Token Successfully Transfered": "Your Token Successfully Transfered",
+    "Waiting for wrap": "Waiting for wrap",
+    "Non-Fungible Token is Successfully Wrapped": "Non-Fungible Token is Successfully Wrapped",
+    "Waiting for approve": "Waiting for approve",
+    "Waiting for unwrap": "Waiting for unwrap",
+    "Your Collateral is Successfully Unwrapped": "Your Collateral is Successfully Unwrapped",
+    "Empty params": "Empty params",
+    "Bad address": "Bad address",
+    "Cannot connect to contract": "Cannot connect to contract"
+}
