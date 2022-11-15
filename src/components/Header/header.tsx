@@ -471,19 +471,19 @@ class Header extends React.Component<HeaderProps, HeaderState> {
 						</div>
 					</li>
 					<li>
-						<Link to="/list" className="item">{ this.t('Dashboard') }</Link>
+						<a href="https://appv1.envelop.is/list" className="item">{ this.t('Dashboard') }</a>
 					</li>
 					<li>
-						<Link to="/crossings" className="item">{ this.t('My crossings') }</Link>
+						<a href="https://appv1.envelop.is/crossings" className="item">{ this.t('My crossings') }</a>
 					</li>
 					<li>
-						<Link className="item" to="/royalty">{ this.t('My Royalties') }</Link>
+						<a className="item" href="https://appv1.envelop.is/royalty">{ this.t('My Royalties') }</a>
 					</li>
 					<li>
 						<Link className="item" to="/mint">{ this.t('Mint') }</Link>
 					</li>
 					<li>
-						<Link className="item" to="/saft">{ this.t('SAFT') }</Link>
+						<a className="item" href="https://appv1.envelop.is/saft">{ this.t('SAFT') }</a>
 					</li>
 					<li className="mt-md-2">
 						<button
