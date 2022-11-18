@@ -320,9 +320,7 @@ class MintPage extends React.Component<MintPageProps, MintPageState> {
 	}
 	getNftImgPreview() {
 
-		const nftImage = this.state.nftImagePreview ? this.state.nftImagePreview.toString() : ''
-
-		if ( !nftImage ) {
+		if ( !this.state.nftImagePreview ) {
 			return (
 				<Dropzone
 					onDrop={(files) => { this.previewOnDrop(files) }}
@@ -346,13 +344,10 @@ class MintPage extends React.Component<MintPageProps, MintPageState> {
 				</Dropzone>
 			)
 		}
+
 		return  (
 			<div className="nft-upload-img">
-				<img
-					src={ nftImage }
-					className="img"
-					alt=""
-				/>
+				{ this.showNftImgPreview() }
 				<button
 					className="btn-del"
 					onClick={() => {
@@ -363,12 +358,38 @@ class MintPage extends React.Component<MintPageProps, MintPageState> {
 			</div>
 		)
 	}
+	showNftImgPreview() {
+		const nftImage = this.state.nftImagePreview ? this.state.nftImagePreview.toString() : ''
+		if ( this.state.nftImageMimeType.includes("video/") ) {
+			return (
+				<video className="img" style={{ width: "100%", height: "100%" }} loop={ true } autoPlay={ true } muted={ true }>
+					<source src={ nftImage } type={ this.state.nftImageMimeType } />
+				</video>
+			)
+		}
+		else if ( this.state.nftImageMimeType.includes("audio/") ) {
+			return (
+				<audio controls={ true } preload="none">
+				    <source src={ nftImage } type={ this.state.nftImageMimeType } />
+				</audio>
+			)
+		}
+		else {
+			return (
+				<img
+					src={ nftImage }
+					className="img"
+					alt=""
+				/>
+			)
+		}
+	}
 	previewOnDrop(files: Array<File>) {
 		if(files[0]) {
-			const imageMimeType = /(image|audio|video)\/(png|jpg|jpeg|svg|gif|webp|webm|mp3|mp4|wav|ogg|glb|gltf)/i
+			const imageMimeType = /(image|audio|video)\/(png|jpg|jpeg|svg|gif|webp|webm|mpeg|mp3|mp4|wav|ogg|glb|gltf)/i
 			const contentType = files[0].type
 			if (!contentType.match(imageMimeType)) {
-				console.log("Unsupported MimeType file")
+				console.log("Unsupported MimeType file - " + contentType);
 				return;
 			}
 			const file = this.state.fileReader
@@ -905,10 +926,14 @@ class MintPage extends React.Component<MintPageProps, MintPageState> {
 		});
 		if ( swarmData ) {
 			if ('image' in swarmData) {
-				this.setState({ swarmNftImageUrl: swarmData['image'] });
+				if (typeof swarmData['image'] === "string") {
+					this.setState({ swarmNftImageUrl: swarmData['image'] });
+				}
 			}
 			if ('json' in swarmData) {
-				this.setState({ swarmNftJsonUrl: swarmData['json'] });
+				if (typeof swarmData['json'] === "string") {
+					this.setState({ swarmNftJsonUrl: swarmData['json'] });
+				}
 
 				// prepare form data
 				const inputStandart = ( this.state.inputStandart === _AssetType.ERC721 ) ? 721 : 1155;
