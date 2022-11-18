@@ -69,7 +69,7 @@ export const getOracleNftMinterSign = async (params: {
 	const BASE_URL = process.env.REACT_APP_ORACLE_API_BASE_URL;
 	if ( !BASE_URL ) { console.log('No oracle base url in .env'); return undefined; }
 
-	const url  = urljoin(BASE_URL, '/mint/sign');
+	const url  = urljoin(BASE_URL, '/web3/mintsign');
 
 	let respParsed: APIOracleSign;
 
