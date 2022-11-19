@@ -150,13 +150,13 @@ class Header extends React.Component<HeaderProps, HeaderState> {
 			return (
 				<React.Fragment>
 					<a
-						href="https://appv1.envelop.is/list"
+						href={`${window.location.origin}/list`}
 						className="s-header__logo d-none d-sm-block"
 					>
 						<img src={ icon_logo } alt="ENVELOP" />
 					</a>
 					<a
-						href="https://appv1.envelop.is/list"
+						href={`${window.location.origin}/list`}
 						className="s-header__logo mob d-sm-none"
 					>
 						<img src={ icon_logo_mob } alt="ENVELOP" />
@@ -167,13 +167,13 @@ class Header extends React.Component<HeaderProps, HeaderState> {
 			return (
 				<React.Fragment>
 					<a
-						href="https://appv1.envelop.is"
+						href={`${window.location.origin}`}
 						className="s-header__logo d-none d-sm-block"
 					>
 						<img src={ icon_logo } alt="ENVELOP" />
 					</a>
 					<a
-						href="https://appv1.envelop.is"
+						href={`${window.location.origin}`}
 						className="s-header__logo mob d-sm-none"
 					>
 						<img src={ icon_logo_mob } alt="ENVELOP" />
@@ -450,19 +450,19 @@ class Header extends React.Component<HeaderProps, HeaderState> {
 						</div>
 					</li>
 					<li>
-						<a href="https://appv1.envelop.is/list" className="item">{ this.t('Dashboard') }</a>
+						<a href={`${window.location.origin}/list`} className="item">{ this.t('Dashboard') }</a>
 					</li>
 					<li>
-						<a href="https://appv1.envelop.is/crossings" className="item">{ this.t('My crossings') }</a>
+						<a href={`${window.location.origin}/crossings`} className="item">{ this.t('My crossings') }</a>
 					</li>
 					<li>
-						<a className="item" href="https://appv1.envelop.is/royalty">{ this.t('My Royalties') }</a>
+						<a className="item" href={`${window.location.origin}/royalty`}>{ this.t('My Royalties') }</a>
 					</li>
 					<li>
 						<Link className="item" to="/mint">{ this.t('Mint') }</Link>
 					</li>
 					<li>
-						<a className="item" href="https://appv1.envelop.is/saft">{ this.t('SAFT') }</a>
+						<a className="item" href={`${window.location.origin}/saft`}>{ this.t('SAFT') }</a>
 					</li>
 					<li className="mt-md-2">
 						<button

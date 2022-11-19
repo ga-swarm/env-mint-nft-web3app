@@ -79,7 +79,7 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
 							<p>{this.t('Keep valuables, earn on resale or just unwrap collateral')}</p>
 							<a
 								className="btn"
-								href="https://appv1.envelop.is/list"
+								href={`${window.location.origin}/list`}
 							>{this.t('Wrap NFT')}</a>
 						</div>
 					</div>
