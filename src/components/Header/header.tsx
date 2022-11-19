@@ -60,11 +60,6 @@ type HeaderState = {
 	decimalsNative: number,
 	symbolNative  : string,
 
-	balanceERC20  : BigNumber,
-	decimalsERC20 : number,
-	allowanceERC20: BigNumber,
-	symbolERC20   : string,
-
 	copiedHint: boolean,
 
 	versionMenuOpened: boolean,
@@ -117,11 +112,6 @@ class Header extends React.Component<HeaderProps, HeaderState> {
 			decimalsNative: this.store.getState().metamaskAdapter.networkTokenDecimals,
 			symbolNative  : this.store.getState().metamaskAdapter.networkTokenTicket,
 
-			balanceERC20  : new BigNumber(0),
-			decimalsERC20 : 0,
-			allowanceERC20: new BigNumber(0),
-			symbolERC20   : '',
-
 			copiedHint       : false,
 			versionMenuOpened: false,
 			chainMenuOpened  : false,
@@ -144,11 +134,6 @@ class Header extends React.Component<HeaderProps, HeaderState> {
 				balanceNative : this.store.getState().account.balanceNative,
 				decimalsNative: this.store.getState().metamaskAdapter.networkTokenDecimals,
 				symbolNative  : this.store.getState().metamaskAdapter.networkTokenTicket,
-
-				balanceERC20  : this.store.getState().erc20TechTokenParams.balance,
-				decimalsERC20 : this.store.getState().erc20TechTokenParams.decimals,
-				allowanceERC20: this.store.getState().erc20TechTokenParams.allowance,
-				symbolERC20   : this.store.getState().erc20TechTokenParams.symbol,
 			});
 		});
 		// this.unlisten = this.props.history.listen(() => {
@@ -317,9 +302,6 @@ class Header extends React.Component<HeaderProps, HeaderState> {
 	}
 	getBalancesFull() {
 		const balances = [];
-		// if ( !this.state.balanceERC20.eq(0) && this.state.decimalsERC20 ) {
-		// 	balances.push(`${ tokenToFloat(new BigNumber(this.state.balanceERC20), this.state.decimalsERC20).toFixed(3, BigNumber.ROUND_DOWN)} ${ this.state.symbolERC20 }`)
-		// }
 
 		if ( this.state.decimalsNative ) {
 			balances.push(`${ tokenToFloat(new BigNumber(this.state.balanceNative), this.state.decimalsNative) } ${ this.state.symbolNative }`)
@@ -332,9 +314,6 @@ class Header extends React.Component<HeaderProps, HeaderState> {
 	}
 	getBalancesShort() {
 		const balances = [];
-		// if ( !this.state.balanceERC20.eq(0) && this.state.decimalsERC20 ) {
-		// 	balances.push(`${ tokenToFloat(new BigNumber(this.state.balanceERC20), this.state.decimalsERC20).toFixed(3, BigNumber.ROUND_DOWN)} ${ this.state.symbolERC20 }`)
-		// }
 
 		if ( this.state.decimalsNative ) {
 			balances.push(`${ tokenToFloat(new BigNumber(this.state.balanceNative), this.state.decimalsNative).toFixed(3, BigNumber.ROUND_DOWN) } ${ this.state.symbolNative }`)
