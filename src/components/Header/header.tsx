@@ -149,35 +149,35 @@ class Header extends React.Component<HeaderProps, HeaderState> {
 		if ( this.state.metamaskLogged ) {
 			return (
 				<React.Fragment>
-					<Link
-						to="/list"
+					<a
+						href="https://appv1.envelop.is/list"
 						className="s-header__logo d-none d-sm-block"
 					>
 						<img src={ icon_logo } alt="ENVELOP" />
-					</Link>
-					<Link
-						to="/list"
+					</a>
+					<a
+						href="https://appv1.envelop.is/list"
 						className="s-header__logo mob d-sm-none"
 					>
 						<img src={ icon_logo_mob } alt="ENVELOP" />
-					</Link>
+					</a>
 				</React.Fragment>
 			)
 		} else {
 			return (
 				<React.Fragment>
-					<Link
-						to="/"
+					<a
+						href="https://appv1.envelop.is"
 						className="s-header__logo d-none d-sm-block"
 					>
 						<img src={ icon_logo } alt="ENVELOP" />
-					</Link>
-					<Link
-						to="/"
+					</a>
+					<a
+						href="https://appv1.envelop.is"
 						className="s-header__logo mob d-sm-none"
 					>
 						<img src={ icon_logo_mob } alt="ENVELOP" />
-					</Link>
+					</a>
 				</React.Fragment>
 			)
 		}
