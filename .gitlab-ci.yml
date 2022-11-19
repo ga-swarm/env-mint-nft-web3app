@@ -7,8 +7,8 @@ stages:
   - deploy-stage
   - build-prod
   - deploy-production
-  - build-gnosis
-  - deploy-gnosis
+  # - build-gnosis
+  # - deploy-gnosis
 
 before_script:
   - docker logout $CI_REGISTRY
@@ -30,7 +30,7 @@ build-app:
     - docker run --rm  -v $PWD:/app node:16 /bin/bash -c 'cd /app && yarn && chmod -R 777 node_modules'
     - docker run --rm
       --env GENERATE_SOURCEMAP=$GENERATE_SOURCEMAP
-      --env PUBLIC_URL=https://stage.appv1.envelop.is
+      --env PUBLIC_URL=$PUBLIC_URL
       --env REACT_APP_ENVIRONMENT=$CI_ENVIRONMENT_NAME
       --env REACT_APP_ORACLE_API_BASE_URL=$REACT_APP_ORACLE_API_BASE_URL
       --env REACT_APP_ORACLE_APP_ID=$REACT_APP_ORACLE_APP_ID
@@ -57,7 +57,7 @@ build-app-prod:
     - docker run --rm  -v $PWD:/app node:16 /bin/bash -c 'cd /app && yarn && chmod -R 777 node_modules'
     - docker run --rm
       --env GENERATE_SOURCEMAP=$GENERATE_SOURCEMAP
-      --env PUBLIC_URL=https://appv1.envelop.is
+      --env PUBLIC_URL=$PUBLIC_URL
       --env REACT_APP_ENVIRONMENT=$CI_ENVIRONMENT_NAME
       --env REACT_APP_ORACLE_API_BASE_URL=$REACT_APP_ORACLE_API_BASE_URL
       --env REACT_APP_ORACLE_APP_ID=$REACT_APP_ORACLE_APP_ID
@@ -80,15 +80,15 @@ deploy-stageserver:
   only:
     - master
   script:
-    - cp ./docker-compose-stage.yaml /home/devops/envelop-appv1
-    - cd /home/devops/envelop-appv1
+    - cp ./docker-compose-stage.yaml /home/devops/envelop-mint/web3app/
+    - cd /home/devops/envelop-mint/web3app
     - docker login -u gitlab-ci-token -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
     - docker pull $CONTAINER_DEV_IMAGE
     - docker-compose -p niftsy -f docker-compose-stage.yaml up -d
     #remove old build
     - rm -r -f build/
-    - docker cp build_stage_appv1:/build/ .
-    - docker-compose -p niftsy -f ../niftsy-nginx/docker-compose.yml up -d --force-recreate nginx
+    - docker cp build_stage_mint:/build/ .
+    - docker-compose -p niftsy -f ../../niftsy-nginx/docker-compose.yml up -d --force-recreate nginx
     - docker system prune --volumes  --force
   environment:
     name: stage
@@ -104,68 +104,68 @@ deploy-productionserver:
   only:
     - master
   script:
-    - cp ./docker-compose-prod.yaml /home/devops/envelop-appv1
-    - cd /home/devops/envelop-appv1
+    - cp ./docker-compose-stage.yaml /home/devops/envelop-mint/web3app/
+    - cd /home/devops/envelop-mint/web3app
     - docker login -u gitlab-ci-token -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
     - docker pull $CONTAINER_PROD_IMAGE
     - docker-compose -p niftsy -f docker-compose-prod.yaml up -d
     - rm -r -f build/
-    - docker cp build_prod_appv1:/build/ .
-    - docker-compose -p niftsy -f ../niftsy-nginx/docker-compose.yml up -d --force-recreate nginx
+    - docker cp build_prod_mint:/build/ .
+    - docker-compose -p niftsy -f ../../niftsy-nginx/docker-compose.yml up -d --force-recreate nginx
     - docker system prune --volumes  --force
   when: manual
   environment:
     name: production
     url: https://appv1.envelop.is
-##############################################################################################
-#####   Gnosis Environment                                                                  ##
-##############################################################################################
-build-app-gnosis:
-  stage: build-gnosis
-  tags:
-    - niftsystage
-  only:
-    - gnosis
-  script:
-    - docker run --rm  -v $PWD:/app node:16 /bin/bash -c 'cd /app && yarn && chmod -R 777 node_modules'
-    - docker run --rm
-      --env GENERATE_SOURCEMAP=$GENERATE_SOURCEMAP
-      --env PUBLIC_URL=https://gnosis.envelop.is
-      --env REACT_APP_ENVIRONMENT=$CI_ENVIRONMENT_NAME
-      --env REACT_APP_ORACLE_API_BASE_URL=$REACT_APP_ORACLE_API_BASE_URL
-      --env REACT_APP_ORACLE_APP_ID=$REACT_APP_ORACLE_APP_ID
-      --env REACT_APP_ORACLE_APP_KEY=$REACT_APP_ORACLE_APP_KEY
-      --env REACT_APP_ORACLE_KEY_ACTIVE_TIME=$REACT_APP_ORACLE_KEY_ACTIVE_TIME
-      -v $PWD:/app node:16 /bin/bash -c 'cd /app && yarn build && cp -R ./public/error ./build'
-    #- ls -lA ./build
-    - docker build -t $CONTAINER_DEV_IMAGE .
-    - docker login -u gitlab-ci-token -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
-    - docker push $CONTAINER_DEV_IMAGE
-    - docker run --rm  -v $PWD:/app node:16 /bin/bash -c 'cd /app && rm -r build/ && chmod -R 777 node_modules'
-  environment:
-    name: gnosis
-    url: https://gnosis.envelop.is
+# ##############################################################################################
+# #####   Gnosis Environment                                                                  ##
+# ##############################################################################################
+# build-app-gnosis:
+#   stage: build-gnosis
+#   tags:
+#     - niftsystage
+#   only:
+#     - gnosis
+#   script:
+#     - docker run --rm  -v $PWD:/app node:16 /bin/bash -c 'cd /app && yarn && chmod -R 777 node_modules'
+#     - docker run --rm
+#       --env GENERATE_SOURCEMAP=$GENERATE_SOURCEMAP
+#       --env PUBLIC_URL=https://gnosis.envelop.is
+#       --env REACT_APP_ENVIRONMENT=$CI_ENVIRONMENT_NAME
+#       --env REACT_APP_ORACLE_API_BASE_URL=$REACT_APP_ORACLE_API_BASE_URL
+#       --env REACT_APP_ORACLE_APP_ID=$REACT_APP_ORACLE_APP_ID
+#       --env REACT_APP_ORACLE_APP_KEY=$REACT_APP_ORACLE_APP_KEY
+#       --env REACT_APP_ORACLE_KEY_ACTIVE_TIME=$REACT_APP_ORACLE_KEY_ACTIVE_TIME
+#       -v $PWD:/app node:16 /bin/bash -c 'cd /app && yarn build && cp -R ./public/error ./build'
+#     #- ls -lA ./build
+#     - docker build -t $CONTAINER_DEV_IMAGE .
+#     - docker login -u gitlab-ci-token -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+#     - docker push $CONTAINER_DEV_IMAGE
+#     - docker run --rm  -v $PWD:/app node:16 /bin/bash -c 'cd /app && rm -r build/ && chmod -R 777 node_modules'
+#   environment:
+#     name: gnosis
+#     url: https://gnosis.envelop.is
 
-deploy-gnosis-env:
-  stage: deploy-gnosis
-  tags:
-    - niftsyprod
-  only:
-    - gnosis
-  script:
-    - cp ./docker-compose-gnosis.yaml /home/devops/envelop-gnosis
-    - cd /home/devops/envelop-gnosis
-    - docker login -u gitlab-ci-token -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
-    - docker pull $CONTAINER_GNOSIS_IMAGE
-    - docker-compose -p niftsy -f docker-compose-gnosis.yaml up -d
-    #remove old build
-    - rm -r -f build/
-    - docker cp build_gnosis_appv1:/build/ .
-    - docker-compose -p niftsy -f ../niftsy-nginx/docker-compose-gnosis.yml up -d --force-recreate nginx
-    - docker system prune --volumes  --force
-  environment:
-    name: gnosis
-    url: https://gnosis.envelop.is
-###############################################################################################
+# deploy-gnosis-env:
+#   stage: deploy-gnosis
+#   tags:
+#     - niftsyprod
+#   only:
+#     - gnosis
+#   script:
+#     - cp ./docker-compose-gnosis.yaml /home/devops/envelop-gnosis
+#     - cd /home/devops/envelop-gnosis
+#     - docker login -u gitlab-ci-token -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+#     - docker pull $CONTAINER_GNOSIS_IMAGE
+#     - docker-compose -p niftsy -f docker-compose-gnosis.yaml up -d
+#     #remove old build
+#     - rm -r -f build/
+#     - docker cp build_gnosis_appv1:/build/ .
+#     - docker-compose -p niftsy -f ../niftsy-nginx/docker-compose-gnosis.yml up -d --force-recreate nginx
+#     - docker system prune --volumes  --force
+#   environment:
+#     name: gnosis
+#     url: https://gnosis.envelop.is
+# ###############################################################################################
 
 

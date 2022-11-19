@@ -2,6 +2,6 @@ version: '3.7'
 
 services:
   build_delivery_service:
-    image: registry.gitlab.com/niftsy/web3app_v1:dev
-    container_name: build_stage_appv1
+    image: registry.gitlab.com/niftsy/swarm/web3app_v1_swarm:dev
+    container_name: build_stage_mint
     entrypoint: "/bin/sh -c 'sleep 1h'"     
