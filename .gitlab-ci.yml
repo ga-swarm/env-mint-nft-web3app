@@ -104,7 +104,7 @@ deploy-productionserver:
   only:
     - master
   script:
-    - cp ./docker-compose-stage.yaml /home/devops/envelop-mint/web3app/
+    - cp ./docker-compose-prod.yaml /home/devops/envelop-mint/web3app/
     - cd /home/devops/envelop-mint/web3app
     - docker login -u gitlab-ci-token -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
     - docker pull $CONTAINER_PROD_IMAGE
