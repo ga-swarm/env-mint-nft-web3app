@@ -244,7 +244,7 @@ export default class MetamaskAdapter {
 			address: this.userAddress,
 		}));
 		await this.getChainId();
-		this.store.dispatch(setLoading({msg: this.t('Loading tokens')}));
+		this.store.dispatch(unsetLoading());
 		this.fetchNativeBalance();
 		this.updateChainListener(method);
 	}

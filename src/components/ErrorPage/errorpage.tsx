@@ -3,7 +3,6 @@ import React from 'react';
 import {
 	withRouter,
 	match,
-	Link
 } from 'react-router-dom';
 
 import {
@@ -61,7 +60,7 @@ class TokenList extends React.Component<TokenListProps, TokenListState> {
 					<div className="h1_sub text-grad">{ this.t('PAGE NOT FOUND') }</div>
 					<p>{ this.t('We couldn\'t find the page you\'re looking for.') }</p>
 					<p className="actions">
-						<Link to="/">{ this.t('Return Home') }</Link>
+						<a href={`${window.location.origin}`}>{ this.t('Return Home') }</a>
 						<span>|</span>
 						<a href="https://docs.envelop.is/" target="_blank" rel="noopener noreferrer">{ this.t('Documentation') }</a>
 					</p>

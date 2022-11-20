@@ -77,10 +77,10 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
 						<div className="onb-intro__text">
 							<h1 className="h1">{this.t('Add')} <span className="text-grad">{this.t('additional')}</span> {this.t('parameters for your nft, such as royalties and collateral.')}</h1>
 							<p>{this.t('Keep valuables, earn on resale or just unwrap collateral')}</p>
-							<Link
+							<a
 								className="btn"
-								to="/list"
-							>{this.t('Wrap NFT')}</Link>
+								href={`${window.location.origin}/list`}
+							>{this.t('Wrap NFT')}</a>
 						</div>
 					</div>
 				</section>

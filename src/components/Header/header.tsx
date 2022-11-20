@@ -60,11 +60,6 @@ type HeaderState = {
 	decimalsNative: number,
 	symbolNative  : string,
 
-	balanceERC20  : BigNumber,
-	decimalsERC20 : number,
-	allowanceERC20: BigNumber,
-	symbolERC20   : string,
-
 	copiedHint: boolean,
 
 	versionMenuOpened: boolean,
@@ -117,11 +112,6 @@ class Header extends React.Component<HeaderProps, HeaderState> {
 			decimalsNative: this.store.getState().metamaskAdapter.networkTokenDecimals,
 			symbolNative  : this.store.getState().metamaskAdapter.networkTokenTicket,
 
-			balanceERC20  : new BigNumber(0),
-			decimalsERC20 : 0,
-			allowanceERC20: new BigNumber(0),
-			symbolERC20   : '',
-
 			copiedHint       : false,
 			versionMenuOpened: false,
 			chainMenuOpened  : false,
@@ -144,11 +134,6 @@ class Header extends React.Component<HeaderProps, HeaderState> {
 				balanceNative : this.store.getState().account.balanceNative,
 				decimalsNative: this.store.getState().metamaskAdapter.networkTokenDecimals,
 				symbolNative  : this.store.getState().metamaskAdapter.networkTokenTicket,
-
-				balanceERC20  : this.store.getState().erc20TechTokenParams.balance,
-				decimalsERC20 : this.store.getState().erc20TechTokenParams.decimals,
-				allowanceERC20: this.store.getState().erc20TechTokenParams.allowance,
-				symbolERC20   : this.store.getState().erc20TechTokenParams.symbol,
 			});
 		});
 		// this.unlisten = this.props.history.listen(() => {
@@ -164,35 +149,35 @@ class Header extends React.Component<HeaderProps, HeaderState> {
 		if ( this.state.metamaskLogged ) {
 			return (
 				<React.Fragment>
-					<Link
-						to="/list"
+					<a
+						href={`${window.location.origin}/list`}
 						className="s-header__logo d-none d-sm-block"
 					>
 						<img src={ icon_logo } alt="ENVELOP" />
-					</Link>
-					<Link
-						to="/list"
+					</a>
+					<a
+						href={`${window.location.origin}/list`}
 						className="s-header__logo mob d-sm-none"
 					>
 						<img src={ icon_logo_mob } alt="ENVELOP" />
-					</Link>
+					</a>
 				</React.Fragment>
 			)
 		} else {
 			return (
 				<React.Fragment>
-					<Link
-						to="/"
+					<a
+						href={`${window.location.origin}`}
 						className="s-header__logo d-none d-sm-block"
 					>
 						<img src={ icon_logo } alt="ENVELOP" />
-					</Link>
-					<Link
-						to="/"
+					</a>
+					<a
+						href={`${window.location.origin}`}
 						className="s-header__logo mob d-sm-none"
 					>
 						<img src={ icon_logo_mob } alt="ENVELOP" />
-					</Link>
+					</a>
 				</React.Fragment>
 			)
 		}
@@ -317,9 +302,6 @@ class Header extends React.Component<HeaderProps, HeaderState> {
 	}
 	getBalancesFull() {
 		const balances = [];
-		// if ( !this.state.balanceERC20.eq(0) && this.state.decimalsERC20 ) {
-		// 	balances.push(`${ tokenToFloat(new BigNumber(this.state.balanceERC20), this.state.decimalsERC20).toFixed(3, BigNumber.ROUND_DOWN)} ${ this.state.symbolERC20 }`)
-		// }
 
 		if ( this.state.decimalsNative ) {
 			balances.push(`${ tokenToFloat(new BigNumber(this.state.balanceNative), this.state.decimalsNative) } ${ this.state.symbolNative }`)
@@ -332,9 +314,6 @@ class Header extends React.Component<HeaderProps, HeaderState> {
 	}
 	getBalancesShort() {
 		const balances = [];
-		// if ( !this.state.balanceERC20.eq(0) && this.state.decimalsERC20 ) {
-		// 	balances.push(`${ tokenToFloat(new BigNumber(this.state.balanceERC20), this.state.decimalsERC20).toFixed(3, BigNumber.ROUND_DOWN)} ${ this.state.symbolERC20 }`)
-		// }
 
 		if ( this.state.decimalsNative ) {
 			balances.push(`${ tokenToFloat(new BigNumber(this.state.balanceNative), this.state.decimalsNative).toFixed(3, BigNumber.ROUND_DOWN) } ${ this.state.symbolNative }`)
@@ -471,19 +450,19 @@ class Header extends React.Component<HeaderProps, HeaderState> {
 						</div>
 					</li>
 					<li>
-						<a href="https://appv1.envelop.is/list" className="item">{ this.t('Dashboard') }</a>
+						<a href={`${window.location.origin}/list`} className="item">{ this.t('Dashboard') }</a>
 					</li>
 					<li>
-						<a href="https://appv1.envelop.is/crossings" className="item">{ this.t('My crossings') }</a>
+						<a href={`${window.location.origin}/crossings`} className="item">{ this.t('My crossings') }</a>
 					</li>
 					<li>
-						<a className="item" href="https://appv1.envelop.is/royalty">{ this.t('My Royalties') }</a>
+						<a className="item" href={`${window.location.origin}/royalty`}>{ this.t('My Royalties') }</a>
 					</li>
 					<li>
 						<Link className="item" to="/mint">{ this.t('Mint') }</Link>
 					</li>
 					<li>
-						<a className="item" href="https://appv1.envelop.is/saft">{ this.t('SAFT') }</a>
+						<a className="item" href={`${window.location.origin}/saft`}>{ this.t('SAFT') }</a>
 					</li>
 					<li className="mt-md-2">
 						<button
