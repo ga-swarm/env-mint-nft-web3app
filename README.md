@@ -1,29 +1,14 @@
+## Envelop Mint Web3APP
+Web3 React application for mint NFT with save metadata to SWARM storage.  
+This application code used in **production environment**, available at https://appv1.envelop.is/mint/  
+NFT Minting available on Goerli, Ethereum, BSC and Polygon networks
 
-# build
+### Dev build & debug with docker
 
-```
-> node --version
-v10.19.0
-
-> npm -V
-6.14.4
-```
-
-```
-> npm install
-> npm run build
+```bash
+docker run -it --rm  -v $PWD:/app node:16 /bin/bash -c 'cd /app && yarn && chmod -R 777 node_modules'
+docker run -it --rm  -v $PWD:/app node:16 /bin/bash -c 'cd /app && yarn start'
 ```
 
-И отдать нжинксом все, что есть в `/build`
-
-Пока ворнингов нет, но если билд не будет собираться из-за них, то в `package.json` поменять (30 строка):
-
-```
-"build": "react-scripts build",
-```
-
-на
-
-```
-"build": "CI=false; react-scripts build",
-```
+### Project settings  
+Main Web3 settings such as smart contract address are in the [config.json](./src/config.json)
