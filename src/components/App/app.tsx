@@ -88,6 +88,9 @@ class App extends React.Component<AppParamsType> {
 		this.i18n = this.props.i18n;
 		this.t    = this.props.t;
 
+		console.log('REACT_APP_ORACLE_API_BASE_URL', process.env.REACT_APP_ORACLE_API_BASE_URL);
+		console.log('REACT_APP_ORACLE_API_MINT_URL', process.env.REACT_APP_ORACLE_API_MINT_URL);
+
 		if ( process.env.REACT_APP_ENVIRONMENT && process.env.REACT_APP_ENVIRONMENT.toLowerCase() === 'production' ) {
 			this.store = createStore(reducer);
 		} else {

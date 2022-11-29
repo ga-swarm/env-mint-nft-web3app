@@ -60,11 +60,11 @@ export const getOracleNftMinterSign = async (params: {
 	standart: number
 }):Promise<APIOracleSign | undefined> => {
 
-	const authToken = await createAuthToken();
-	if ( authToken === '' ) {
-		console.log('Cannot create token');
-		return undefined;
-	}
+	// const authToken = await createAuthToken();
+	// if ( authToken === '' ) {
+	// 	console.log('Cannot create token');
+	// 	return undefined;
+	// }
 
 	const BASE_URL = process.env.REACT_APP_ORACLE_API_BASE_URL;
 	if ( !BASE_URL ) { console.log('No oracle base url in .env'); return undefined; }
@@ -77,7 +77,7 @@ export const getOracleNftMinterSign = async (params: {
 	    const requestOptions = {
 	        method: 'POST',
 	        headers: {
-	        	'Authorization': authToken,
+	        	// 'Authorization': authToken,
 	        	'Content-Type': 'application/json'
 	        },
 	        body: JSON.stringify({
@@ -113,11 +113,11 @@ export const fetchSwarmStamp = async (params: {
 	}>
 }):Promise<Array<SwarmStampBatchId> | undefined> => {
 
-	const authToken = await createAuthToken();
-	if ( authToken === '' ) {
-		console.log('Cannot create token');
-		return undefined;
-	}
+	// const authToken = await createAuthToken();
+	// if ( authToken === '' ) {
+	// 	console.log('Cannot create token');
+	// 	return undefined;
+	// }
 
 	let BASE_URL = process.env.REACT_APP_ORACLE_API_MINT_URL;
 	let url = BASE_URL || '';
@@ -127,6 +127,7 @@ export const fetchSwarmStamp = async (params: {
 		url = urljoin(BASE_URL, `mint/`);
 	}
 	url  = urljoin(url, `new/`);
+	console.log('url', url);
 
 	let respParsed: Array<SwarmStampBatchId>;
 
@@ -134,7 +135,7 @@ export const fetchSwarmStamp = async (params: {
 	    const requestOptions = {
 	        method: 'POST',
 	        headers: {
-	        	'Authorization': authToken,
+	        	// 'Authorization': authToken,
 	        	'Content-Type': 'application/json'
 	        },
 	        body: JSON.stringify({
