@@ -484,12 +484,34 @@ class MintPage extends React.Component<MintPageProps, MintPageState> {
 									<div className="row d-none d-sm-flex">
 										<div className="col-sm-5">
 											<div className="input-group">
-												<label className="input-label">Trait</label>
+												<label className="input-label">Trait
+													<Tippy
+														content={ this.t('Fill in name of trait that you want save in metadata of NFT') }
+														appendTo='parent'
+														trigger='mouseenter'
+														interactive={ false }
+														arrow={ false }
+														maxWidth={ 512 }
+													>
+														<span className="i-tip ml-1"></span>
+													</Tippy>
+												</label>
 											</div>
 										</div>
 										<div className="col-sm-5">
 											<div className="input-group">
-												<label className="input-label">Value</label>
+												<label className="input-label">Value
+													<Tippy
+														content={ this.t('Fill in value of trait that you want save in metadata of NFT') }
+														appendTo='parent'
+														trigger='mouseenter'
+														interactive={ false }
+														arrow={ false }
+														maxWidth={ 512 }
+													>
+														<span className="i-tip ml-1"></span>
+													</Tippy>
+												</label>
 											</div>
 										</div>
 									</div>
@@ -686,7 +708,18 @@ class MintPage extends React.Component<MintPageProps, MintPageState> {
 			<div className="col-12 col-lg-3">
 
 				<div className="input-group mb-md-0">
-					<label className="input-label">Batch amount</label>
+					<label className="input-label">Batch amount
+						<Tippy
+							content={ this.t('Set amount of NFTs that you want mint') }
+							appendTo={ document.getElementsByClassName("wrapper")[0] }
+							trigger='mouseenter'
+							interactive={ false }
+							arrow={ false }
+							maxWidth={ 512 }
+						>
+							<span className="i-tip ml-1"></span>
+						</Tippy>
+					</label>
 					<input
 						className={`input-control ${ showError ? 'has-error' : '' }`}
 						type="text"
@@ -716,7 +749,18 @@ class MintPage extends React.Component<MintPageProps, MintPageState> {
 				<div className="row">
 					<div className="col-12 col-lg-5">
 						<div className="input-group mb-md-0">
-							<label className="input-label">NFT Standard</label>
+							<label className="input-label">NFT Standard
+								<Tippy
+									content={ this.t('Check type of NFTs that you want mint') }
+									appendTo={ document.getElementsByClassName("wrapper")[0] }
+									trigger='mouseenter'
+									interactive={ false }
+									arrow={ false }
+									maxWidth={ 512 }
+								>
+									<span className="i-tip ml-1"></span>
+								</Tippy>
+							</label>
 							<div className="row row-sm">
 								<div className="col-auto my-2">
 									<label className="checkbox">
@@ -924,7 +968,7 @@ class MintPage extends React.Component<MintPageProps, MintPageState> {
 			mime: this.state.nftImageMimeType,
 			props: this.state.nftPropertiesData
 		});
-		if ( swarmData ) {
+		if ( swarmData !== undefined ) {
 			if ('image' in swarmData) {
 				if (typeof swarmData['image'] === "string") {
 					this.setState({ swarmNftImageUrl: swarmData['image'] });
