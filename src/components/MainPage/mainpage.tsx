@@ -9,7 +9,6 @@ import icon_bg_onb    from "../../static/pics/bg/bg-onb.svg"
 
 import { withTranslation }  from "react-i18next";
 import {
-	Link,
 	withRouter,
 	match,
 	Redirect
