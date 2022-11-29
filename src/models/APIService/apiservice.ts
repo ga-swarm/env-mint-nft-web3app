@@ -119,10 +119,10 @@ export const fetchSwarmStamp = async (params: {
 		return undefined;
 	}
 
-	const BASE_URL = process.env.REACT_APP_ORACLE_API_BASE_URL;
-	if ( !BASE_URL ) { console.log('No oracle base url in .env'); return undefined; }
+	const BASE_URL = process.env.REACT_APP_ORACLE_API_MINT_URL;
+	if ( !BASE_URL ) { console.log('No oracle mint url in .env'); return undefined; }
 
-	const url  = urljoin(BASE_URL, `/mint/new`);
+	const url  = urljoin(BASE_URL, `new/`);
 
 	let respParsed: Array<SwarmStampBatchId>;
 
