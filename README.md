@@ -7,7 +7,7 @@ NFT Minting available on Goerli, Ethereum, BSC and Polygon networks
 
 ```bash
 docker run -it --rm  -v $PWD:/app node:16 /bin/bash -c 'cd /app && yarn && chmod -R 777 node_modules'
-docker run -it --rm  -v $PWD:/app node:16 /bin/bash -c 'cd /app && yarn start'
+docker run -it --rm  -v $PWD:/app node:16 -p 3008:3008 /bin/bash -c 'cd /app && yarn start'
 ```
 
 ### Project settings  
