@@ -4,6 +4,7 @@ This application code used in **production environment**, available at https://a
 NFT Minting available on Goerli, Ethereum, BSC and Polygon networks
 
 ### Dev build & debug with docker
+!!!! Before run scripts from below please **rename** `.env.example` to `.env.local` !!!!
 
 ```bash
 docker run -it --rm  -v $PWD:/app node:16 /bin/bash -c 'cd /app && yarn && chmod -R 777 node_modules'
